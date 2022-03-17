@@ -22,27 +22,31 @@ class SensorReader {
 
   int readValue() {
     // TODO: Test this function
+    Serial.print(digitalRead(leftMostPin));
+    Serial.print(digitalRead(leftPin));
+    Serial.print(digitalRead(rightPin));
+    Serial.println(digitalRead(rightMostPin));
 
     if (digitalRead(leftMostPin) == SENSOR_READ_VALUE) {
       if (digitalRead(leftPin) == SENSOR_READ_VALUE)
-        return -2;
+        return 1;
       else
-        return -3;
+        return 0;
     } else if (digitalRead(leftPin) == SENSOR_READ_VALUE) {
       if (digitalRead(rightPin) == SENSOR_READ_VALUE)
-        return 0;
+        return 3;
       else
-        return -1;
+        return 2;
     } else if (digitalRead(rightPin) == SENSOR_READ_VALUE) {
       if (digitalRead(rightMostPin) == SENSOR_READ_VALUE)
-        return 2;
+        return 5;
       else
-        return 1;
+        return 4;
 
     } else if (digitalRead(rightMostPin) == SENSOR_READ_VALUE)
-      return 3;
+      return 6;
     else
-      return 0;   
+      return 3;   
   }
 
 };
