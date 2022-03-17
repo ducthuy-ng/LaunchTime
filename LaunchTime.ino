@@ -23,10 +23,9 @@ void setup() {
   Serial.begin(9600);
   Serial.println("Hello, World");
 
-  leftWheel.rotateForward(200);
-  rightWheel.rotateBackward(100);
 }
 
 void loop() {
-  
+  Serial.println(sensorReader.readValue());
+  delay(250);
 }
